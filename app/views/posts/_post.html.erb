@@ -1,0 +1,9 @@
+<p>Poster: <%= post.username %></p>
+<h1>Title: <%= post.title %> </h1>
+<p>Body: <%= post.body %> </p>
+
+<%= link_to "Show Page", post if action_name == "index" %> |
+<%= link_to "Edit Page", edit_post_path(post) %>
+
+<br>
+--------------------------------------
