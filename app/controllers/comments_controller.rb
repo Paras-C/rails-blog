@@ -15,10 +15,13 @@ class CommentsController < ApplicationController
   end
 
   def create
-    post = Post.find(params[:post_id])
-    post.comments.create(comment_params)
-
-    redirect_to post
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.create(comment_params)
+    if @comment.save
+      redirect_to @post
+    else
+      render :new
+    end
   end
 
   def edit
@@ -27,17 +30,21 @@ class CommentsController < ApplicationController
   end
 
   def update
-    post = Post.find(params[:post_id])
-    comment = post.comments.find(params[:id])
-    comment.update(comment_params)
-    redirect_to post
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
+    @comment.update(comment_params)
+    if @comment.save
+      redirect_to @post
+    else
+      render :new
+    end
   end
 
   def destroy
     post = Post.find(params[:post_id])
     post.comments.find(params[:id]).destroy
 
-    redirect_to post    
+    redirect_to "/"    
   end
 
   protected
