@@ -5,6 +5,6 @@
 <%= link_to "Add New Comment", new_post_comment_path(@post) %>
 
   <h3>Comments on this Post: </h3>
-
+  <%= render @post.comments %>
 
 <br>
