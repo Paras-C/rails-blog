@@ -2,9 +2,11 @@
 
 <%= render @post %>
 <br>
-<%= link_to "Add New Comment", new_post_comment_path(@post) %>
 
-  <h3>Comments on this Post: </h3>
+
+  <h2>Comments: </h2>
   <%= render @post.comments %>
 
 <br>
+
+<%= link_to "Add New Comment", new_post_comment_path(@post) %>

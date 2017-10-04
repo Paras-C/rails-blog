@@ -30,8 +30,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    Post.destroy(params[:id])
-    redirect_to post
+    @post = Post.destroy(params[:id])
+    redirect_to @post
   end
 
   protected
