@@ -1,10 +1,9 @@
-<h4>Commenter: <%= comment.commenter_name %></h4>
 <p>
-  <%= comment.comment_body %>
+<h4><%= comment.comment_body %></h4>
+  Commenter: <%= comment.commenter_name %>
 <br>
 <%= link_to "Show", post_comment_path(@post, comment) %> |
-<%= link_to "Edit", edit_post_comment_path(comment) %> |
+<%= link_to "Edit", edit_post_comment_path(@post, comment) %> |
 
   <%= link_to 'Delete', post_comment_path(@post, comment), method: :delete %>
-</p>
 </p>
